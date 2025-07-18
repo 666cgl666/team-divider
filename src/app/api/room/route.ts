@@ -250,13 +250,13 @@ export async function POST(request: NextRequest) {
         // 记录游戏日志
         logGame(globalRoom.players, teams);
         
-        // 30秒后重置房间
+        // 1秒后重置房间
         setTimeout(() => {
           console.log(`🔄 游戏 #${globalRoom.gameNumber} 结束，房间重置`);
-          
+
           // 从等待队列中移动玩家到房间
           const playersToMove = globalRoom.waitingQueue.splice(0, Math.min(10, globalRoom.waitingQueue.length));
-          
+
           globalRoom = {
             players: playersToMove,
             gamePhase: 'waiting',
@@ -266,11 +266,11 @@ export async function POST(request: NextRequest) {
             waitingCount: globalRoom.waitingQueue.length,
             gameNumber: globalRoom.gameNumber + 1
           };
-          
+
           if (playersToMove.length > 0) {
             console.log(`🎯 ${playersToMove.length} 名等待玩家进入新房间`);
           }
-        }, 30000);
+        }, 1000);
       }
       
       return NextResponse.json({

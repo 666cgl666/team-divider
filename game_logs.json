@@ -158,8 +158,167 @@
         "17528019697550cbtut5ub",
         "1752801989648dy0llkemz"
       ]
+    },
+    {
+      "id": "17528025166874dgxpz6ag",
+      "timestamp": 1752802516687,
+      "gameNumber": 1,
+      "players": [
+        {
+          "id": "1752802473659m266uel7h",
+          "name": "gwse",
+          "isTraitor": false,
+          "team": 2,
+          "joinedAt": 1752802473659
+        },
+        {
+          "id": "1752802475626shdh76zjv",
+          "name": "gwse2",
+          "isTraitor": false,
+          "team": 1,
+          "joinedAt": 1752802475626
+        },
+        {
+          "id": "1752802478188z4w98iuxh",
+          "name": "gwse3",
+          "isTraitor": false,
+          "team": 1,
+          "joinedAt": 1752802478188
+        },
+        {
+          "id": "17528024799581ysvteslf",
+          "name": "gwse4",
+          "isTraitor": true,
+          "team": 1,
+          "joinedAt": 1752802479958
+        },
+        {
+          "id": "1752802481161uc92pyl2v",
+          "name": "gwse5",
+          "isTraitor": false,
+          "team": 2,
+          "joinedAt": 1752802481161
+        },
+        {
+          "id": "1752802492265cxufjqxy2",
+          "name": "gwse6",
+          "isTraitor": true,
+          "team": 2,
+          "joinedAt": 1752802492265
+        },
+        {
+          "id": "17528025051635c2h0h7k8",
+          "name": "gwse7",
+          "isTraitor": true,
+          "team": 2,
+          "joinedAt": 1752802505163
+        },
+        {
+          "id": "1752802508689uyrouait1",
+          "name": "gwse8",
+          "isTraitor": true,
+          "team": 1,
+          "joinedAt": 1752802508689
+        },
+        {
+          "id": "1752802512350fzcjvawda",
+          "name": "gwse9",
+          "isTraitor": false,
+          "team": 1,
+          "joinedAt": 1752802512350
+        },
+        {
+          "id": "17528025166874qt3em9fu",
+          "name": "gwse10",
+          "isTraitor": false,
+          "team": 2,
+          "joinedAt": 1752802516687
+        }
+      ],
+      "teams": {
+        "team1": [
+          {
+            "id": "17528024799581ysvteslf",
+            "name": "gwse4",
+            "isTraitor": true,
+            "team": 1,
+            "joinedAt": 1752802479958
+          },
+          {
+            "id": "1752802478188z4w98iuxh",
+            "name": "gwse3",
+            "isTraitor": false,
+            "team": 1,
+            "joinedAt": 1752802478188
+          },
+          {
+            "id": "1752802512350fzcjvawda",
+            "name": "gwse9",
+            "isTraitor": false,
+            "team": 1,
+            "joinedAt": 1752802512350
+          },
+          {
+            "id": "1752802475626shdh76zjv",
+            "name": "gwse2",
+            "isTraitor": false,
+            "team": 1,
+            "joinedAt": 1752802475626
+          },
+          {
+            "id": "1752802508689uyrouait1",
+            "name": "gwse8",
+            "isTraitor": true,
+            "team": 1,
+            "joinedAt": 1752802508689
+          }
+        ],
+        "team2": [
+          {
+            "id": "1752802492265cxufjqxy2",
+            "name": "gwse6",
+            "isTraitor": true,
+            "team": 2,
+            "joinedAt": 1752802492265
+          },
+          {
+            "id": "1752802473659m266uel7h",
+            "name": "gwse",
+            "isTraitor": false,
+            "team": 2,
+            "joinedAt": 1752802473659
+          },
+          {
+            "id": "17528025166874qt3em9fu",
+            "name": "gwse10",
+            "isTraitor": false,
+            "team": 2,
+            "joinedAt": 1752802516687
+          },
+          {
+            "id": "17528025051635c2h0h7k8",
+            "name": "gwse7",
+            "isTraitor": true,
+            "team": 2,
+            "joinedAt": 1752802505163
+          },
+          {
+            "id": "1752802481161uc92pyl2v",
+            "name": "gwse5",
+            "isTraitor": false,
+            "team": 2,
+            "joinedAt": 1752802481161
+          }
+        ]
+      },
+      "traitors": [
+        "17528024799581ysvteslf",
+        "1752802492265cxufjqxy2",
+        "17528025051635c2h0h7k8",
+        "1752802508689uyrouait1"
+      ]
     }
   ],
   "gameNumber": 1,
-  "lastUpdated": 1752801989648
+  "lastUpdated": 1752802516688
 }
