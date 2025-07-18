@@ -1,14 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // 开发环境支持API路由，生产环境可选择静态导出或服务器模式
-  ...(process.env.EXPORT_MODE === 'static' ? {
-    output: 'export',
-    distDir: 'out',
-  } : {}),
+  // Cloudflare Pages 全栈模式配置
   trailingSlash: true,
   images: {
     unoptimized: true,
+  },
+  // 支持API路由和服务器端功能
+  experimental: {
+    runtime: 'edge',
   },
 };
 
