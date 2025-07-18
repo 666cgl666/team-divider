@@ -250,7 +250,7 @@ export async function POST(request: NextRequest) {
         // 记录游戏日志
         logGame(globalRoom.players, teams);
         
-        // 1秒后重置房间
+        // 5秒后重置房间
         setTimeout(() => {
           console.log(`🔄 游戏 #${globalRoom.gameNumber} 结束，房间重置`);
 
@@ -270,7 +270,7 @@ export async function POST(request: NextRequest) {
           if (playersToMove.length > 0) {
             console.log(`🎯 ${playersToMove.length} 名等待玩家进入新房间`);
           }
-        }, 1000);
+        }, 5000);
       }
       
       return NextResponse.json({
