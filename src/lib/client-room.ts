@@ -24,6 +24,7 @@ class ClientRoomManager {
   private static instance: ClientRoomManager;
   private roomState: RoomState;
   private listeners: ((state: RoomState) => void)[] = [];
+  private broadcastChannel: BroadcastChannel | null = null;
 
   private constructor() {
     this.roomState = {
@@ -35,8 +36,25 @@ class ClientRoomManager {
       waitingCount: 0
     };
 
+    // 初始化跨标签页通信
+    this.initBroadcastChannel();
+
     // 尝试从localStorage恢复状态
     this.loadFromStorage();
+  }
+
+  private initBroadcastChannel() {
+    if (typeof window !== 'undefined' && 'BroadcastChannel' in window) {
+      this.broadcastChannel = new BroadcastChannel('team-divider-room');
+
+      // 监听其他标签页的消息
+      this.broadcastChannel.onmessage = (event) => {
+        if (event.data.type === 'ROOM_STATE_UPDATE') {
+          this.roomState = event.data.state;
+          this.notify(false); // 不广播，避免循环
+        }
+      };
+    }
   }
 
   static getInstance(): ClientRoomManager {
@@ -65,13 +83,27 @@ class ClientRoomManager {
     }
   }
 
-  private notify() {
+  private notify(broadcast: boolean = true) {
     this.saveToStorage();
+
+    // 广播到其他标签页
+    if (broadcast && this.broadcastChannel) {
+      this.broadcastChannel.postMessage({
+        type: 'ROOM_STATE_UPDATE',
+        state: this.roomState
+      });
+    }
+
+    // 通知本标签页的监听器
     this.listeners.forEach(listener => listener(this.roomState));
   }
 
   subscribe(listener: (state: RoomState) => void) {
     this.listeners.push(listener);
+
+    // 立即发送当前状态
+    listener(this.roomState);
+
     return () => {
       this.listeners = this.listeners.filter(l => l !== listener);
     };
@@ -79,6 +111,13 @@ class ClientRoomManager {
 
   getRoomState(): RoomState {
     return { ...this.roomState };
+  }
+
+  // 清理资源
+  destroy() {
+    if (this.broadcastChannel) {
+      this.broadcastChannel.close();
+    }
   }
 
   // 生成唯一名字
